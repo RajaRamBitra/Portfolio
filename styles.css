@@ -1,78 +1,141 @@
-/* Global Styles */
+/* General Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(45deg, #ff0000, #0000ff);
-  background-size: 400% 400%;
-  animation: gradientAnimation 5s ease infinite;
-  color: white;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #000;
 }
 
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* Header Styling */
 header {
-  padding: 20px;
-  text-align: center;
-  font-size: 2rem;
-  background-color: rgba(0, 0, 0, 0.7);
+    background: url('https://example.com/attack-on-titan-background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-h1 {
-  animation: fadeIn 3s ease-in-out;
+header .header-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Fade-in Animation for Text */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
 }
 
-/* Button with Hover Animation */
-.animated-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+header p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
 
-.animated-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
+.cta-btn {
+    background-color: #E63946;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
 }
 
-/* AOS Scroll Animation */
-.aos-item {
-  margin: 50px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+.cta-btn:hover {
+    background-color: #F77F00;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+/* Timeline Section */
+#timeline {
+    padding: 50px;
+    background-color: #1B1B1B;
+    text-align: center;
 }
 
-.item {
-  flex: 1 0 300px;
-  margin: 20px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+#timeline h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-.item:hover {
-  transform: translateY(-10px);
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.timeline-item h3 {
+    font-size: 1.5em;
+    color: #E63946;
+}
+
+.timeline-item p {
+    font-size: 1.2em;
+}
+
+/* Skills Section */
+#skills {
+    padding: 50px;
+    background-color: #0B0B0B;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill {
+    text-align: center;
+}
+
+.skill i {
+    font-size: 3em;
+    color: #F77F00;
+}
+
+.skill p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Footer Section */
+footer {
+    background-color: #1B1B1B;
+    padding: 30px;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 2em;
+    margin: 0 15px;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 1.2em;
 }
