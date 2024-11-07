@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Profile</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Webpage</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Raja Ram Bitra</h1>
-        <p>AI Enthusiast | Data Analyst </p>
-    </header>
+  <header>
+    <h1 data-aos="fade-down">Welcome to My Animated Webpage</h1>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I’m a data-driven AI enthusiast with experience in data analysis, automation, and cloud computing...</p>
-    </section>
+  <section class="container">
+    <div class="item" data-aos="zoom-in" data-aos-duration="1000">
+      <h2>About Me</h2>
+      <p>This is a short description about me and my work.</p>
+    </div>
+    <div class="item" data-aos="flip-left" data-aos-duration="1000">
+      <h2>My Projects</h2>
+      <p>Here are some of the amazing projects I have worked on.</p>
+    </div>
+    <div class="item" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Contact</h2>
+      <p>Feel free to get in touch with me.</p>
+    </div>
+  </section>
 
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <ul>
-            <li><a href="link-to-your-project">ClassBuilder - AI-Powered Discord Bot</a></li>
-            <li><a href="link-to-your-github">Self-Help Chatbot using Azure Data Factory</a></li>
-            <!-- Add more projects as needed -->
-        </ul>
-    </section>
+  <div style="text-align: center; padding: 50px;">
+    <button class="animated-button">Click Me!</button>
+  </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="iamrambitra@gmail.com">iamrambitra@gmail.com</a></p>
-        <p>LinkedIn: <a href="www.linkedin.com/in/raja-ram-bitra">linkedin.com/in/raja-ram-bitra</a></p>
-        <!-- Add other contact links like GitHub, Twitter -->
-    </section>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init();
+  </script>
 </body>
 </html>
