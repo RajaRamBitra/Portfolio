@@ -1,40 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Webpage</title>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Raja Ram Bitra | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1 data-aos="fade-down">Welcome to My Animated Webpage</h1>
-  </header>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Raja Ram Bitra</h1>
+            <p>Master’s in Artificial Intelligence | Data Analyst | Web Developer</p>
+            <a href="#timeline" class="cta-btn">Explore My Journey</a>
+        </div>
+    </header>
 
-  <section class="container">
-    <div class="item" data-aos="zoom-in" data-aos-duration="1000">
-      <h2>About Me</h2>
-      <p>This is a short description about me and my work.</p>
-    </div>
-    <div class="item" data-aos="flip-left" data-aos-duration="1000">
-      <h2>My Projects</h2>
-      <p>Here are some of the amazing projects I have worked on.</p>
-    </div>
-    <div class="item" data-aos="fade-up" data-aos-duration="1000">
-      <h2>Contact</h2>
-      <p>Feel free to get in touch with me.</p>
-    </div>
-  </section>
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <h2>My Journey</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <h3>2024 - Present</h3>
+                <p>Pursuing Master’s in Artificial Intelligence at Florida Atlantic University</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2021 - 2023</h3>
+                <p>Data Analyst at Tata Consultancy Services</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2017 - 2021</h3>
+                <p>Bachelor’s in Electronics and Communication Engineering</p>
+            </div>
+        </div>
+    </section>
 
-  <div style="text-align: center; padding: 50px;">
-    <button class="animated-button">Click Me!</button>
-  </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <p>SQL</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js-square"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <p>HTML</p>
+            </div>
+        </div>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Initialize AOS (Animate On Scroll)
-    AOS.init();
-  </script>
+    <!-- Social Section -->
+    <footer>
+        <h2>Connect with Me</h2>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/raja-ram-bitra" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/rajarambitra" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:iamrambitra@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2024 Raja Ram Bitra</p>
+    </footer>
 </body>
 </html>
