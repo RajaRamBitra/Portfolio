@@ -11,7 +11,7 @@ Welcome to my personal portfolio website! This is a modern, responsive, and inte
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://your-username.github.io](https://rajarambitra.github.io)
+Visit the live portfolio: [https://rajarambitra.github.io](https://rajarambitra.github.io)
 
 ## 📋 Table of Contents
 
@@ -233,4 +233,4 @@ Contributions are welcome! Here's how you can help:
 
 **Raja Ram Bitra**
 - **Email**: [rambitra01@gmail.com]
-- **LinkedIn**: [www.linkedin.com/in/raja-ram-bitra]
+- **LinkedIn**: [www.linkedin.com/in/raja-ram-bitra](www.linkedin.com/in/raja-ram-bitra)
