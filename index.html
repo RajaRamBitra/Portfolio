@@ -1,266 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sri Kolli | Data Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fdfdfd;
-      --primary: #004aad;
-      --secondary: #0275d8;
-      --text: #1a1a1a;
-      --muted: #667;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      font-size: 1.5rem;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: #fff;
-      transition: 0.3s all;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .hero img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      object-fit: cover;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      max-width: 600px;
-    }
-    .skills-list, .cert-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .skills-list li, .cert-list li {
-      list-style: none;
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      text-align: center;
-      transition: 0.3s transform;
-    }
-    .skills-list li:hover {
-      transform: translateY(-4px);
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      transition: 0.3s ease-out;
-    }
-    .project-card .content {
-      padding: 1rem;
-      background: #fff;
-    }
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-    }
-    .project-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .project-card a {
-      position: absolute;
-      inset: 0;
-    }
-    .project-card:hover img {
-      transform: scale(1.05);
-    }
-    .contact {
-      text-align: center;
-    }
-    button.scroll-top {
-      position: fixed;
-      right: 1.25rem;
-      bottom: 1.25rem;
-      background: var(--secondary);
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      color: #fff;
-      font-size: 1.25rem;
-      display: none;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      background: #f5f5f5;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    @media (max-width: 600px) {
-      nav a {
-        margin-left: 1rem;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener('scroll', () => {
-      const btn = document.querySelector('.scroll-top');
-      btn.style.display = window.scrollY > 400 ? 'block' : 'none';
-    });
-    function scrollTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raja Ram Bitra - Data Analyst & AI Specialist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Sri Kolli</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#certs">Certificates</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Raja Ram Bitra</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section id="about" class="hero">
-    <img src="profile.jpg" alt="Sri Kolli">
-    <h2>Data Analyst &amp; AI Enthusiast</h2>
-    <p>I turn complex datasets into clear, actionable insights that help businesses grow. Passionate about cloud analytics, visualization, and building AI‑powered solutions.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Power BI</li>
-      <li>Tableau</li>
-      <li>Azure</li>
-      <li>AWS</li>
-      <li>Pandas</li>
-      <li>NumPy</li>
-      <li>EDA</li>
-      <li>A/B Testing</li>
-    </ul>
-  </section>
-
-  <section id="certs">
-    <h2>Certificates</h2>
-    <ul class="cert-list">
-      <li><a href="link-to-google-cert" target="_blank">Google Data Analytics</a></li>
-      <li><a href="link-to-aws-cert" target="_blank">AWS Cloud Practitioner</a></li>
-      <li><a href="link-to-azure-cert" target="_blank">Azure Data Fundamentals</a></li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="images/churn.jpg" alt="Churn Predictor">
-        <div class="content">
-          <h3>Customer Churn Predictor</h3>
-          <p>Logistic model identifies at‑risk customers and drives retention strategies.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="highlight">Raja Ram Bitra</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Data Analyst & AI Specialist</h2>
+                    <p class="hero-description">
+                        Transforming data into actionable insights with 2+ years of experience in analytics, 
+                        machine learning, and cloud technologies. Currently pursuing Master's in AI at Florida Atlantic University.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="floating-icon" style="--delay: 0s">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="floating-icon" style="--delay: 1s">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="floating-icon" style="--delay: 2s">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="floating-icon" style="--delay: 3s">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="https://github.com/yourusername/churn-prediction" target="_blank"></a>
-      </div>
-      <div class="project-card">
-        <img src="images/sales.jpg" alt="Sales Dashboard">
-        <div class="content">
-          <h3>Sales Insights Dashboard</h3>
-          <p>Interactive Power BI dashboard revealing top drivers of revenue.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about turning data into insights</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a dedicated Data Analyst with expertise in SQL, Python, and cloud technologies. 
+                        With over 2 years of professional experience at Tata Consultancy Services, I've 
+                        developed a strong foundation in data analysis, visualization, and predictive modeling.
+                    </p>
+                    <p>
+                        Currently pursuing my Master's in Artificial Intelligence at Florida Atlantic University 
+                        with a 3.97 GPA, I'm expanding my knowledge in machine learning and AI technologies 
+                        to solve complex business problems.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Data Quality Improvement</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3.97</span>
+                            <span class="stat-label">GPA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="education-card">
+                        <h3>Current Education</h3>
+                        <div class="education-item">
+                            <h4>Master's in Artificial Intelligence</h4>
+                            <p>Florida Atlantic University</p>
+                            <span class="date">Jan 2024 - April 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="https://github.com/yourusername/sales-insights" target="_blank"></a>
-      </div>
-      <div class="project-card">
-        <img src="images/funnel.jpg" alt="Digital Funnel Analysis">
-        <div class="content">
-          <h3>Digital Funnel Analysis</h3>
-          <p>Adobe Analytics Workspace views for funnel drop-offs and A/B tests.</p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">Professional journey and achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Data Analyst</h3>
+                            <span class="company">Tata Consultancy Services</span>
+                            <span class="duration">Nov 2021 - Dec 2023</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Developed interactive dashboards and data visualizations driving strategic business decisions</li>
+                                <li>Managed large-scale databases with SQL and Azure Cosmos DB, optimizing cloud workflows</li>
+                                <li>Performed advanced statistical analysis with Python and web analytics through Adobe Analytics</li>
+                                <li>Implemented data quality assurance processes improving data quality by 95%</li>
+                                <li>Collaborated with cross-functional teams to identify KPIs and translate technical findings</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">Azure</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Adobe Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="https://github.com/yourusername/digital-funnel-analysis" target="_blank"></a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a> &nbsp; | &nbsp; 🔗 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing my technical skills and creativity</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Revenue Performance Dashboard</h3>
+                        <p>Comprehensive analytics dashboard blending click, order, and ad data to identify high-profit products and customer segments using Power BI.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Power BI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-  <button class="scroll-top" onclick="scrollTop()">↑</button>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Vision Through Image Captioning</h3>
+                        <p>AI-powered image captioning system using OpenCV and TensorFlow, converting visual content into descriptive audio for visually impaired users with 92% accuracy.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-trophy"></i>
+                                Hackathon
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    © 2025 Sri Kolli. Built with ❤ using HTML &amp; CSS.
-  </footer>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Study Buddy Chatbot</h3>
+                        <p>Intelligent Discord chatbot that converts lecture transcripts into digestible notes, quizzes, and summaries using NLP pipelines and transformer models.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Hugging Face</span>
+                            <span class="tech-tag">Discord API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-discord"></i>
+                                Bot
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Data Analysis</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Adobe Analytics</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">EDA & ETL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Data Quality Assurance</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Pandas & NumPy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Visualization</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Power BI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Matplotlib</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Seaborn</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Azure</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TensorFlow</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <h3>Certifications</h3>
+                <div class="cert-item">
+                    <i class="fab fa-google"></i>
+                    <span>Google Data Analytics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss opportunities and collaborations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Delray Beach, Florida</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(561) 403-6685</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rambitra01@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Raja Ram Bitra</h3>
+                    <p>Data Analyst & AI Specialist</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/raja-ram-bitra" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/rajarambitra" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rambitra01@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Raja Ram Bitra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
