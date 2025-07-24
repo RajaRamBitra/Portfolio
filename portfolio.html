@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raja Ram Bitra</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .name {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .name h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            margin-right: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            flex: 1;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+
+        /* Sections are now always visible */
+        .section {
+            display: block;
+            /* Changed from none */
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-text-simple {
+            margin-top: 2rem;
+        }
+
+        .about-text-simple p:last-child {
+            text-align: justify;
+            /* Aligns the main paragraph equally */
+            margin-top: 1rem;
+            /* Creates the line space after "Hi, I'm Ram." */
+        }
+
+        /* Education Section */
+        .education-entry-new {
+            position: relative;
+            /* This is new */
+            margin-bottom: 2.5rem;
+            /* Add some space between entries */
+        }
+
+        .education-timeline .education-entry-new:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Add these new rules for the timeline */
+        .education-timeline {
+            position: relative;
+            margin-top: 2rem;
+            padding-left: 40px;
+            /* Make space for the timeline */
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background-color: #e9ecef;
+            /* Light grey line */
+            border-radius: 2px;
+        }
+
+        .education-entry-new::before {
+            content: '';
+            position: absolute;
+            left: -37.7px;
+            /* Centered on the timeline */
+            top: 6px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #3498db;
+            border: 3px solid #f8f9fa;
+            z-index: 1;
+        }
+
+        .education-header-new {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            /* Dark Blue/Black */
+        }
+
+        .education-date-new {
+            font-size: 0.95rem;
+            color: #6c757d;
+            /* Muted grey for the date */
+            font-style: italic;
+            flex-shrink: 0;
+            padding-left: 1rem;
+        }
+
+        .education-university-new {
+            font-size: 1rem;
+            color: #495057;
+            /* Dark grey */
+            margin-bottom: 0.25rem;
+            /* Changed from 1.25rem */
+        }
+
+        .coursework-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .course-tag-new {
+            background-color: #e9ecef;
+            /* Light grey background */
+            color: #495057;
+            /* Darker grey text */
+            padding: 0.4rem 0.9rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .course-tag-new:hover {
+            background-color: #d3d9df;
+            /* Slightly darker on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-top: 1.5rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-title h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        .experience-duration {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-style: italic;
+            flex-shrink: 0;
+            padding-left: 1rem;
+            text-align: right;
+        }
+
+        .achievement-list {
+            margin-top: 1rem;
+            /* Space below the company name */
+            padding-left: 0;
+            list-style: none;
+        }
+
+        /* Replace the old .achievement-list li rule */
+        .achievement-list li {
+            color: #333;
+            margin-bottom: 0.5rem;
+            /* Reduced space between points */
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        /* Add this new rule to remove space after the last point */
+        .achievement-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .achievement-list li::before {
+            content: '•';
+            /* Standard black pointer */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #2c3e50;
+            font-size: 1rem;
+            line-height: 1.6;
+            /* Align with text */
+        }
+
+        .tech-stack {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            /* Allows tags to wrap to the next line on small screens */
+            row-gap: 0.6rem;
+            /* Ensures correct spacing if tags wrap */
+        }
+
+        .tech-stack h4 {
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-right: 0.75rem;
+            /* Adds space between "Stack:" and the first tag */
+            flex-shrink: 0;
+            /* Prevents the heading from shrinking */
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tech-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.4rem 0.9rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+
+        .skill-category-title {
+            width: 35%;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #2c3e50;
+            padding-right: 1rem;
+            display: flex;
+            /* <-- ADD THIS */
+            align-items: center;
+            /* <-- AND THIS */
+        }
+
+        .skill-icon {
+            color: #3498db;
+            /* Blue icon color to match the theme */
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+            width: 20px;
+            /* Ensures consistent alignment */
+            text-align: center;
+        }
+
+        .skills-list-container {
+            margin-top: 2rem;
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
+            /* Reduced space between rows */
+        }
+
+
+        .skill-list-text {
+            color: #495057;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #495057;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Find and UPDATE this rule for the card border */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #ced4da;
+            /* Light border for definition */
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            /* Add this for better content flow */
+            flex-direction: column;
+            /* Add this */
+        }
+
+        .project-description {
+            color: #495057;
+            margin-bottom: auto;
+            /* Pushes the tech tags to the bottom */
+            padding-bottom: 1.5rem;
+            /* Ensures space above the tags */
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            /* No margin-top needed anymore */
+        }
+
+        /* Certifications Section */
+
+        .certifications-grid {
+            display: flex;
+            justify-content: space-around;
+            /* Distributes items evenly */
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            /* Space between items if they wrap */
+            margin-top: 2rem;
+            padding: 1rem 0;
+            /* Add some vertical padding to the container */
+        }
+
+        .cert-item {
+            display: flex;
+            flex-direction: column;
+            /* Stacks the icon on top of the title */
+            align-items: center;
+            /* Centers them horizontally */
+            text-align: center;
+            width: 160px;
+            /* Gives each item a consistent width */
+            transition: transform 0.2s ease;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.05);
+            /* A subtle hover effect */
+        }
+
+        .cert-icon {
+            color: #3498db;
+            /* Blue icon color */
+            font-size: 2.5rem;
+            /* Larger icon */
+            margin-bottom: 1rem;
+            /* Space between icon and title */
+        }
+
+        .cert-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+        }
+
+        .contact-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            /* Space between the icons */
+            margin-top: 2.5rem;
+        }
+
+        .contact-social-links a {
+            color: #2c3e50;
+            /* Dark icon color */
+            font-size: 2rem;
+            /* Size of the icons */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-social-links a:hover {
+            color: #3498db;
+            /* Blue on hover */
+            transform: translateY(-4px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .about-content,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="name">
+                <h1>Raja Ram Bitra</h1>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <!-- Updated href to use anchor link -->
+                        <a href="#about" class="nav-link active" data-section="about">
+                            <i class="fas fa-user"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#education" class="nav-link" data-section="education">
+                            <i class="fas fa-graduation-cap"></i>Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#experience" class="nav-link" data-section="experience">
+                            <i class="fas fa-briefcase"></i>Experience
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link" data-section="skills">
+                            <i class="fas fa-cog"></i>Skills
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link" data-section="projects">
+                            <i class="fas fa-project-diagram"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#certifications" class="nav-link" data-section="certifications">
+                            <i class="fas fa-certificate"></i>Certifications
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-section="contact">
+                            <i class="fas fa-envelope"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <!-- Text Column -->
+                    <div class="about-text-simple">
+                        <p>Hi, I'm Ram.</p>
+                        <p>
+                            I'm a passionate AI/ML Engineer with over two years of professional experience as a Data
+                            Analyst, where I specialized in architecting scalable data solutions and processing
+                            terabyte-scale data in Azure. I recently completed my Master's in Artificial Intelligence at
+                            Florida Atlantic University, building on my expertise in data engineering and analytics to
+                            create innovative AI-powered applications.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h2 class="section-title">Education</h2>
+
+                <div class="education-timeline">
+                    <!-- Master's Degree Entry -->
+                    <div class="education-entry-new">
+                        <div class="education-header-new">
+                            <h3 class="education-degree">Master of Science in Artificial Intelligence</h3>
+                            <span class="education-date-new">Jan 2024 - Apr 2025</span>
+                        </div>
+                        <p class="education-university-new">Florida Atlantic University, Florida, USA</p>
+                        <p class="education-university-new">GPA: 3.97 / 4.0</p>
+                        <div class="coursework-list">
+                            <span class="course-tag-new">Generative AI</span>
+                            <span class="course-tag-new">Machine Learning</span>
+                            <span class="course-tag-new">Deep Learning</span>
+                            <span class="course-tag-new">Natural Language Processing</span>
+                            <span class="course-tag-new">Data Mining</span>
+                            <span class="course-tag-new">Reinforcement Learning</span>
+                            <span class="course-tag-new">Information Retrieval</span>
+                            <span class="course-tag-new">Statistical Analysis</span>
+                            <span class="course-tag-new">Neural Networks</span>
+                        </div>
+                    </div>
+
+                    <!-- Bachelor's Degree Entry -->
+                    <div class="education-entry-new">
+                        <div class="education-header-new">
+                            <h3 class="education-degree">Bachelor of Technology in E.C.E</h3>
+                            <span class="education-date-new">Jul 2017 - May 2021</span>
+                        </div>
+                        <p class="education-university-new">Sir C.R.Reddy College of Engineering, Andhra Pradesh, India
+                        </p>
+                        <p class="education-university-new">GPA: 8.35 / 10</p>
+                        <div class="coursework-list">
+                            <span class="course-tag-new">Advanced Calculus</span>
+                            <span class="course-tag-new">C Programming</span>
+                            <span class="course-tag-new">Data Structures & Algorithms</span>
+                            <span class="course-tag-new">Computer Networks</span>
+                            <span class="course-tag-new">Electronic Devices and Circuits</span>
+                            <span class="course-tag-new">MicroProcessor and MicroController</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Data Analyst</h3>
+                            <div class="experience-company">Tata Consultancy Services, India</div>
+                        </div>
+                        <div class="experience-duration">Nov 2021 - Dec 2023</div>
+                    </div>
+
+                    <ul class="achievement-list">
+                        <li>Architected SQL & Python queries in Azure to process terabyte-scale Cosmos DB data, cutting
+                            processing time by 30%</li>
+                        <li>Developed complex Adobe Analytics dashboards to provide leadership with real-time KPI
+                            visibility, accelerating data-driven strategic decisions</li>
+                        <li>Improved data integrity by 25% by establishing new QA processes and documenting flows with
+                            Visio</li>
+                        <li>Built self-service Excel dashboards that tracked KPIs and reduced ad-hoc requests by 40%
+                        </li>
+                        <li>Performed comprehensive data cleaning and ETL processes across diverse data sources,
+                            improving data quality by 95%</li>
+                        <li>Developed Power BI reporting suite with advanced DAX measures for senior leadership,
+                            directly informing quarterly business strategy</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <h4>Technology Stack:</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">Cosmos DB</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Adobe Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-list-container">
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-code skill-icon"></i>
+                            <span>Programming & Tools</span>
+                        </p>
+                        <p class="skill-list-text">Python, SQL, Git, Docker, GitHub, discord.py, asyncio</p>
+                    </div>
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-chart-bar skill-icon"></i>
+                            <span>Data Analysis & Visualization</span>
+                        </p>
+                        <p class="skill-list-text">Power BI, Adobe Analytics, Excel, Matplotlib, Pandas, NumPy,
+                            Streamlit</p>
+                    </div>
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-database skill-icon"></i>
+                            <span>Databases & Cloud</span>
+                        </p>
+                        <p class="skill-list-text">MySQL, Cosmos DB, Azure, APIs</p>
+                    </div>
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-brain skill-icon"></i>
+                            <span>AI/ML</span>
+                        </p>
+                        <p class="skill-list-text">PyTorch, TensorFlow, Transformers, EasyOCR, Computer Vision, NLP</p>
+                    </div>
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-chart-line skill-icon"></i>
+                            <span>Data Science & Analytics</span>
+                        </p>
+                        <p class="skill-list-text">EDA, ETL, Regression, Classification, A/B Testing, Statistical
+                            Analysis</p>
+                    </div>
+                    <div class="skill-row">
+                        <p class="skill-category-title">
+                            <i class="fas fa-tasks skill-icon"></i>
+                            <span>Process & Quality</span>
+                        </p>
+                        <p class="skill-list-text">QA Analysis, Agile/Scrum, Visio</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <h3 class="project-title">ClassBuilder: AI-Powered Study Assistant Discord Bot</h3>
+                        <p class="project-description">
+                            Developed and deployed a multi-functional Discord bot to serve as an AI-powered study
+                            companion, engineered with a high-speed Groq API and Llama 3 for near-instantaneous
+                            responses. Features include interactive study tools, conversational Q&A, and robust file
+                            handling.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">discord.py</span>
+                            <span class="tech-tag">Groq API</span>
+                            <span class="tech-tag">PyMuPDF</span>
+                            <span class="tech-tag">asyncio</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <h3 class="project-title">Vision AI: Multi-Modal Computer Vision Platform</h3>
+                        <p class="project-description">
+                            A comprehensive AI application integrating five distinct pre-trained models from Hugging
+                            Face for advanced computer vision tasks, including image captioning, visual Q&A, object
+                            detection, and intelligent OCR. Built with a responsive Streamlit UI.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Transformers</span>
+                            <span class="tech-tag">EasyOCR</span>
+                            <span class="tech-tag">Pillow</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="section">
+                <h2 class="section-title">Certifications & Achievements</h2>
+                <div class="certifications-grid">
+                    <div class="cert-item">
+                        <i class="fas fa-medal cert-icon"></i>
+                        <h3 class="cert-title">Dean's List Recognition</h3>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fab fa-microsoft cert-icon"></i>
+                        <h3 class="cert-title">Azure Data Analytics</h3>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-chart-bar cert-icon"></i>
+                        <h3 class="cert-title">Power BI Specialist</h3>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-brain cert-icon"></i>
+                        <h3 class="cert-title">AI/ML Research</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>
+                        I'm always excited to connect with fellow AI enthusiasts, potential collaborators, and
+                        innovative companies. Whether you have a question, a project proposal, or just want to say
+                        hello, please feel free to reach out directly at <strong>rambitra01@gmail.com</strong> or
+                        connect with me through the links below.
+                    </p>
+
+                    <div class="contact-social-links">
+                        <a href="mailto:rambitra01@gmail.com" aria-label="Email" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+15614036685" aria-label="Phone" title="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/raja-ram-bitra" aria-label="LinkedIn" title="LinkedIn"
+                            target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/RajaRamBitra" aria-label="GitHub" title="GitHub" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            // --- Simplified Navigation ---
+            // The old 'showSection' logic is removed.
+            // The page now relies on standard anchor links (#about, #education, etc.)
+            // and the browser's default scrolling behavior.
+
+            // --- Active Link Highlighting on Scroll ---
+            const observerOptions = {
+                root: null, // observes intersections relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.4 // Triggers when 40% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                        });
+
+                        // Get the ID of the visible section
+                        const id = entry.target.getAttribute('id');
+
+                        // Find the corresponding nav link and add the active class
+                        const activeLink = document.querySelector(`.nav-link[data-section="${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+
+            // --- Typing effect for the title (unchanged) ---
+            const title = document.querySelector('.title');
+            if (title) {
+                const titleText = title.textContent;
+                title.textContent = '';
+                let i = 0;
+                function typeWriter() {
+                    if (i < titleText.length) {
+                        title.textContent += titleText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                }
+                setTimeout(typeWriter, 1000);
+            }
+
+
+            // --- Loading animation (unchanged) ---
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
